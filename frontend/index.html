@@ -8,14 +8,15 @@
 <body>
 <header>
     <h1>Магазин конной амуниции</h1>
-    <div id="auth-container" class="auth-container"></div> <!-- Контейнер для авторизации -->
+    <div id="auth-container" class="auth-container"></div>
 
     <div class="cart">
-        <a href="cart.html" id="cart-icon" data-count="0">🛒 Корзина</a>
+        <a href="trash.html" id="cart-icon" data-count="0">🛒 Корзина</a> <!-- Значок корзины -->
     </div>
 </header>
 <nav>
     <ul>
+        <!-- Эти ссылки также можно динамически создавать через JS -->
         <li class="nav-item"><a href="#sedla">Седла</a></li>
         <li class="nav-item"><a href="#voltrapy">Вольтрапы</a></li>
         <li class="nav-item"><a href="#podprugi">Подпруги</a></li>
@@ -23,25 +24,7 @@
     </ul>
 </nav>
 <main>
-    <section id="sedla">
-        <h2>Седла</h2>
-        <div class="product-list"></div>
-    </section>
-
-    <section id="voltrapy">
-        <h2>Вольтрапы</h2>
-        <div class="product-list"></div>
-    </section>
-
-    <section id="podprugi">
-        <h2>Подпруги</h2>
-        <div class="product-list"></div>
-    </section>
-
-    <section id="upryaz">
-        <h2>Элементы упряжи</h2>
-        <div class="product-list"></div>
-    </section>
+    <!-- Здесь категории и товары будут динамически добавляться через JS -->
 </main>
 <footer>
     <p>&copy; 2024 Магазин конной амуниции</p>

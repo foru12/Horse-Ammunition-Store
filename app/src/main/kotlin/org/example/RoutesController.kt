@@ -10,6 +10,8 @@ import io.ktor.server.auth.principal
 import io.ktor.server.request.receive
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import org.example.Categories
+import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
@@ -17,18 +19,56 @@ import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.mindrot.jbcrypt.BCrypt
 
+
+
+fun Route.categoryRoutes() {
+    route("/categories") {
+        get {
+            val categories = transaction {
+                Categories.selectAll().map {
+                    Category(it[Categories.id], it[Categories.name])
+                }
+            }
+            call.respond(categories)
+        }
+
+        post("/create") {
+            val category = call.receive<Category>()
+            transaction {
+                Categories.insert {
+                    it[name] = category.name
+                }
+            }
+            call.respond(HttpStatusCode.Created, "Category created successfully")
+        }
+
+        delete("/delete/{id}") {
+            val categoryId = call.parameters["id"]?.toIntOrNull()
+            if (categoryId != null) {
+                transaction {
+                    Categories.deleteWhere { Categories.id eq categoryId }
+                }
+                call.respond(HttpStatusCode.OK, "Category deleted successfully")
+            } else {
+                call.respond(HttpStatusCode.BadRequest, "Invalid category ID")
+            }
+        }
+    }
+}
+
+
 fun Route.productRoutes() {
     route("/products") {
         get {
             val products = transaction {
                 Products.selectAll().map {
                     Product(
-                        it[Products.id],
-                        it[Products.name],
-                        it[Products.description],
-                        it[Products.price],
-                        it[Products.imageUrl],
-                        it[Products.category]
+                        id = it[Products.id],
+                        name = it[Products.name],
+                        description = it[Products.description],
+                        price = it[Products.price],
+                        imageUrl = it[Products.imageUrl],
+                        category = it[Products.category]
                     )
                 }
             }
@@ -43,7 +83,7 @@ fun Route.productRoutes() {
                     it[description] = product.description
                     it[price] = product.price
                     it[imageUrl] = product.imageUrl
-                    it[category] = product.category
+                    it[category] = product.category // Назначаем EntityID категории
                 }
             }
             call.respond(HttpStatusCode.Created, "Product added successfully")
@@ -63,6 +103,7 @@ fun Route.productRoutes() {
     }
 }
 
+// Маршрут для регистрации
 fun Route.registerRoute() {
     post("/register") {
         val registrationData = call.receive<UserRegistration>()
@@ -79,6 +120,7 @@ fun Route.registerRoute() {
     }
 }
 
+// Маршрут для авторизации
 fun Route.loginRoute() {
     post("/login") {
         val loginData = call.receive<UserLogin>()
@@ -116,6 +158,7 @@ fun Route.loginRoute() {
     }
 }
 
+// Защищенные маршруты
 fun Route.protectedRoute() {
     authenticate("auth-jwt") {
         get("/protected") {

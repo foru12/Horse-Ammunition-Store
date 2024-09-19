@@ -13,12 +13,17 @@ import io.ktor.server.auth.jwt.JWTPrincipal
 import io.ktor.server.auth.jwt.jwt
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
+import io.ktor.server.plugins.callloging.CallLogging
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.plugins.cors.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.StdOutSqlLogger
+import org.jetbrains.exposed.sql.addLogger
+import org.slf4j.event.Level
+
 import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
@@ -40,6 +45,14 @@ fun Application.module() {
         user = "root",
         password = "root"
     )
+    install(CallLogging) {
+        level = Level.INFO // Уровень логирования
+        filter { call -> call.request.path().startsWith("/") } // Фильтр логируемых маршрутов
+    }
+    transaction {
+        addLogger(StdOutSqlLogger)
+        // Ваши SQL-запросы
+    }
 
     // Остальные установки CORS, ContentNegotiation и маршруты
     install(CORS) {
@@ -73,6 +86,7 @@ fun Application.module() {
     }
 
     routing {
+        categoryRoutes()
         productRoutes()
         registerRoute()
         loginRoute()

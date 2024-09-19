@@ -36,10 +36,7 @@
             <div class="form-group">
                 <label for="productCategory">Категория</label>
                 <select id="productCategory">
-                    <option value="Седла">Седла</option>
-                    <option value="Вольтрапы">Вольтрапы</option>
-                    <option value="Подпруги">Подпруги</option>
-                    <option value="Элементы упряжи">Элементы упряжи</option>
+                    <!-- Категории будут динамически добавлены здесь -->
                 </select>
             </div>
             <div class="form-group">
@@ -51,12 +48,31 @@
     </section>
 
     <section>
+        <h2>Добавить категорию</h2>
+        <form id="categoryForm">
+            <div class="form-group">
+                <label for="categoryName">Название категории</label>
+                <input type="text" id="categoryName" required>
+            </div>
+            <button type="submit">Добавить категорию</button>
+        </form>
+    </section>
+
+    <section>
         <h2>Список товаров</h2>
         <div id="productList">
             <!-- Товары будут динамически добавлены здесь -->
         </div>
     </section>
+
+    <section>
+        <h2>Список категорий</h2>
+        <div id="categoryList">
+            <!-- Категории будут динамически добавлены здесь -->
+        </div>
+    </section>
 </div>
+
 <script src="js/admin.js"></script>
 </body>
 </html>

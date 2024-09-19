@@ -43,6 +43,7 @@ dependencies {
     implementation("io.ktor:ktor-server-cors-jvm:2.0.0")
     implementation("org.mindrot:jbcrypt:0.4")
     implementation("io.ktor:ktor-server-auth-jwt:2.0.0")
+    implementation("io.ktor:ktor-server-call-logging:2.3.1")
 
 }
 
