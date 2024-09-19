@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Админка - Магазин конной амуниции</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; background-color: white; border-radius: 8px; }
+        h1, h2, h3 { text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; }
+        input, textarea, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { padding: 10px 15px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+        .delete { background-color: #dc3545; }
+        .item { display: flex; justify-content: space-between; padding: 10px; background-color: #f8f9fa; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+<h1>Админка</h1>
+<div class="container">
+    <section>
+        <h2>Добавить товар</h2>
+        <form id="productForm">
+            <div class="form-group">
+                <label for="productName">Название товара</label>
+                <input type="text" id="productName" required>
+            </div>
+            <div class="form-group">
+                <label for="productDescription">Описание</label>
+                <textarea id="productDescription" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="productPrice">Цена</label>
+                <input type="number" id="productPrice" required>
+            </div>
+            <div class="form-group">
+                <label for="productCategory">Категория</label>
+                <select id="productCategory">
+                    <option value="Седла">Седла</option>
+                    <option value="Вольтрапы">Вольтрапы</option>
+                    <option value="Подпруги">Подпруги</option>
+                    <option value="Элементы упряжи">Элементы упряжи</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="productImage">URL изображения</label>
+                <input type="text" id="productImage">
+            </div>
+            <button type="submit">Добавить товар</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Список товаров</h2>
+        <div id="productList">
+            <!-- Товары будут динамически добавлены здесь -->
+        </div>
+    </section>
+</div>
+<script src="js/admin.js"></script>
+</body>
+</html>

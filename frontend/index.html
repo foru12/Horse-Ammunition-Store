@@ -8,10 +8,10 @@
 <body>
 <header>
     <h1>Магазин конной амуниции</h1>
+    <div id="auth-container" class="auth-container"></div> <!-- Контейнер для авторизации -->
+
     <div class="cart">
-        <a href="cart.html" id="cart-icon" data-count="0">
-            🛒 Корзина
-        </a>
+        <a href="cart.html" id="cart-icon" data-count="0">🛒 Корзина</a>
     </div>
 </header>
 <nav>
@@ -23,66 +23,29 @@
     </ul>
 </nav>
 <main>
-    <!-- Раздел "Седла" -->
     <section id="sedla">
         <h2>Седла</h2>
-        <div class="product-list">
-            <div class="product-item">
-                <img src="res/im/test_im.png" alt="Седло 1">
-                <h3>Седло 1</h3>
-                <p>10 000 руб.</p>
-                <button class="add-to-cart" data-name="Седло 1" data-price="10000" data-image="res/im/test_im.png">В корзину</button>
-            </div>
-            <!-- Добавьте другие товары аналогично -->
-        </div>
+        <div class="product-list"></div>
     </section>
 
-    <!-- Раздел "Вольтрапы" -->
     <section id="voltrapy">
         <h2>Вольтрапы</h2>
-        <div class="product-list">
-            <div class="product-item">
-                <img src="res/im/test_im.png" alt="Вольтрап 1">
-                <h3>Вольтрап 1</h3>
-                <p>2 500 руб.</p>
-                <button class="add-to-cart" data-name="Вольтрап 1" data-price="2500" data-image="res/im/test_im.png">В корзину</button>
-            </div>
-            <!-- Добавьте другие товары аналогично -->
-        </div>
+        <div class="product-list"></div>
     </section>
 
-    <!-- Раздел "Подпруги" -->
     <section id="podprugi">
         <h2>Подпруги</h2>
-        <div class="product-list">
-            <div class="product-item">
-                <img src="res/im/test_im.png" alt="Подпруга 1">
-                <h3>Подпруга 1</h3>
-                <p>1 500 руб.</p>
-                <button class="add-to-cart" data-name="Подпруга 1" data-price="1500" data-image="res/im/test_im.png">В корзину</button>
-            </div>
-            <!-- Добавьте другие товары аналогично -->
-        </div>
+        <div class="product-list"></div>
     </section>
 
-    <!-- Раздел "Элементы упряжи" -->
     <section id="upryaz">
         <h2>Элементы упряжи</h2>
-        <div class="product-list">
-            <div class="product-item">
-                <img src="res/im/test_im.png" alt="Элемент упряжи 1">
-                <h3>Элемент упряжи 1</h3>
-                <p>800 руб.</p>
-                <button class="add-to-cart" data-name="Элемент упряжи 1" data-price="800" data-image="res/im/test_im.png">В корзину</button>
-            </div>
-            <!-- Добавьте другие товары аналогично -->
-        </div>
+        <div class="product-list"></div>
     </section>
 </main>
 <footer>
     <p>&copy; 2024 Магазин конной амуниции</p>
 </footer>
-<!-- Подключаем JavaScript файл -->
 <script src="js/app.js"></script>
 </body>
 </html>

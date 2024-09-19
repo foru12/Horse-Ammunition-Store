@@ -41,6 +41,9 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.27")
     implementation("io.ktor:ktor-server-cors:2.0.0")
     implementation("io.ktor:ktor-server-cors-jvm:2.0.0")
+    implementation("org.mindrot:jbcrypt:0.4")
+    implementation("io.ktor:ktor-server-auth-jwt:2.0.0")
+
 }
 
 testing {
