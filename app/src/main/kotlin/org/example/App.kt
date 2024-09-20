@@ -19,17 +19,17 @@ import io.ktor.server.plugins.cors.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import org.example.cotroler.categoryRoutes
+import org.example.cotroler.loginRoute
+import org.example.cotroler.productRoutes
+import org.example.cotroler.protectedRoute
+import org.example.cotroler.registerRoute
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.StdOutSqlLogger
 import org.jetbrains.exposed.sql.addLogger
 import org.slf4j.event.Level
 
-import org.jetbrains.exposed.sql.deleteWhere
-import org.jetbrains.exposed.sql.insert
-import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
-import org.jetbrains.exposed.sql.update
-
 
 
 fun main() {

@@ -1,4 +1,4 @@
-package org.example
+package org.example.data
 import org.jetbrains.exposed.sql.*
 
 object Categories : Table() {

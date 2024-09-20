@@ -1,12 +1,8 @@
-package org.example
+package org.example.data
 
 
 
-import io.ktor.serialization.gson.*
-import io.ktor.server.engine.embeddedServer
-import io.ktor.server.netty.Netty
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.transactions.transaction
 
 
 object Products : Table() {

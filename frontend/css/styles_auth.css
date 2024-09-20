@@ -1,6 +1,9 @@
+/* Основные стили */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Georgia', serif;
     background-color: #f4f4f4;
+    background-image: url('images/wood-texture.jpg'); /* Текстура дерева для фона */
+    background-size: cover;
     margin: 0;
     padding: 0;
 }
@@ -8,33 +11,167 @@ body {
 h1 {
     text-align: center;
     margin-top: 20px;
+    font-family: 'Merriweather', serif;
+    color: #3e3e3e;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #3e3e3e;
+    margin-top: 10px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Прозрачный белый фон */
+    border: 2px solid #8a5a35; /* Коричневая рамка */
+    border-radius: 10px; /* Округленные углы */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Тени для глубины */
+    text-align: center;
+}
+
+.container h1 {
+    margin-top: 0;
+}
+
+.container p {
+    margin-top: 10px;
+}
+
+.container button {
+    padding: 10px 30px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.container button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.container button:focus {
+    outline: none;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .container button {
+        margin: 10px 0;
+        width: 80%;
+    }
+}
+/* Основные стили */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4f4f4;
+    background-image: url('images/wood-texture.jpg'); /* Текстура дерева для фона */
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Merriweather', serif;
+    color: #3e3e3e;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #3e3e3e;
+    margin-top: 10px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Прозрачный белый фон */
+    border: 2px solid #8a5a35; /* Коричневая рамка */
+    border-radius: 10px; /* Округленные углы */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Тени для глубины */
+    text-align: center;
 }
 
 form {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
-label, input {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
+form label {
+    text-align: left;
+    font-size: 16px;
+    color: #3e3e3e;
+    margin-bottom: 5px;
 }
 
-button {
+form input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
     width: 100%;
-    padding: 10px;
-    background-color: #28a745;
+    box-sizing: border-box;
+}
+
+form input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+form button {
+    padding: 12px;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #218838;
+form button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
 }
+
+form button:focus {
+    outline: none;
+}
+
+.container h1 {
+    margin-top: 0;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .container {
+        margin: 40px 20px;
+        padding: 20px;
+    }
+
+    form input, form button {
+        width: 100%;
+    }
+}
+

@@ -1,4 +1,4 @@
-package org.example
+package org.example.cotroler
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
@@ -10,8 +10,13 @@ import io.ktor.server.auth.principal
 import io.ktor.server.request.receive
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import org.example.Categories
-import org.jetbrains.exposed.dao.id.EntityID
+import org.example.data.Categories
+import org.example.sql.Category
+import org.example.sql.Product
+import org.example.data.Products
+import org.example.sql.UserLogin
+import org.example.sql.UserRegistration
+import org.example.data.Users
 import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
